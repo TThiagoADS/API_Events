@@ -1,0 +1,23 @@
+package com.tthiagoads.api.domain.address;
+
+import com.tthiagoads.api.domain.event.Event;
+import jakarta.persistence.*;
+
+import java.util.UUID;
+
+@Table(name = "address")
+@Entity
+public class Address {
+
+    @Id
+    @GeneratedValue
+    private UUID id;
+
+    private String city;
+    private String uf;
+
+    @ManyToOne
+    @JoinColumn(name="event-id")
+    private Event event;
+
+}
